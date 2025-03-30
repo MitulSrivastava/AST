@@ -552,120 +552,218 @@
           <h2>Contact Us</h2>
           <p class="lead">We'd love to hear about your project</p>
         </div>
-        <div class="row g-4">
-          <div class="col-lg-5">
-            <div class="contact-info">
-              <div class="contact-item d-flex align-items-start mb-4">
-                <div class="icon-box me-3">
-                  <i class="fas fa-map-marker-alt"></i>
-                </div>
-                <div>
-                  <h5>Our Location</h5>
-                  <p>
-                    123 Renovation Street, Design District, Cityville, 12345
-                  </p>
-                </div>
+
+        <!-- Contact info cards row -->
+        <div class="row contact-cards-row mb-5">
+          <div class="col-md-4 mb-4 mb-md-0">
+            <div class="contact-card text-center p-4 h-100">
+              <div class="contact-card-icon mb-3">
+                <i class="fas fa-map-marker-alt"></i>
               </div>
-              <div class="contact-item d-flex align-items-start mb-4">
-                <div class="icon-box me-3">
-                  <i class="fas fa-phone-alt"></i>
-                </div>
-                <div>
-                  <h5>Call Us</h5>
-                  <p>(123) 456-7890</p>
-                </div>
-              </div>
-              <div class="contact-item d-flex align-items-start mb-4">
-                <div class="icon-box me-3">
-                  <i class="fas fa-envelope"></i>
-                </div>
-                <div>
-                  <h5>Email Us</h5>
-                  <p>info@revivinghomes.com</p>
-                </div>
-              </div>
-              <div class="social-links mt-4">
-                <a href="#" class="me-2"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="me-2"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="me-2"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="me-2"><i class="fab fa-linkedin-in"></i></a>
-              </div>
+              <h5>Visit Our Office</h5>
+              <p class="mb-0">
+                123 Renovation Street, Design District, Cityville, 12345
+              </p>
             </div>
           </div>
-          <div class="col-lg-7">
-            <div class="contact-form p-4 rounded shadow-sm bg-white">
+          <div class="col-md-4 mb-4 mb-md-0">
+            <div class="contact-card text-center p-4 h-100">
+              <div class="contact-card-icon mb-3">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <h5>Call Us Anytime</h5>
+              <p class="mb-0">(123) 456-7890</p>
+              <p class="mb-0">Mon-Sat: 9:00 AM - 6:00 PM</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="contact-card text-center p-4 h-100">
+              <div class="contact-card-icon mb-3">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <h5>Email Us</h5>
+              <p class="mb-0">info@revivinghomes.com</p>
+              <p class="mb-0">support@revivinghomes.com</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <div class="contact-form p-4 p-md-5 rounded shadow-sm bg-white">
+              <h4 class="mb-4">Send Us a Message</h4>
               <form id="contactForm">
                 <div class="row g-3">
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="name" class="form-label">Your Name</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="name"
-                        placeholder="Enter your name"
-                        required
-                      />
+                      <div class="input-with-icon">
+                        <i class="fas fa-user input-icon"></i>
+                        <input
+                          type="text"
+                          class="form-control form-control-lg"
+                          id="name"
+                          placeholder="Your Name*"
+                          required
+                        />
+                      </div>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="email" class="form-label">Your Email</label>
+                      <div class="input-with-icon">
+                        <i class="fas fa-envelope input-icon"></i>
+                        <input
+                          type="email"
+                          class="form-control form-control-lg"
+                          id="email"
+                          placeholder="Your Email*"
+                          required
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <div class="input-with-icon">
+                        <i class="fas fa-phone-alt input-icon"></i>
+                        <input
+                          type="tel"
+                          class="form-control form-control-lg"
+                          id="phone"
+                          placeholder="Phone Number"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <div class="input-with-icon">
+                        <i class="fas fa-tag input-icon"></i>
+                        <select
+                          class="form-select form-select-lg"
+                          id="service-type"
+                        >
+                          <option selected disabled>Service Required</option>
+                          <option value="structural">
+                            Structural Renovations
+                          </option>
+                          <option value="interior">Interior Redesigning</option>
+                          <option value="improvements">
+                            Home Improvements
+                          </option>
+                          <option value="eco">Eco-Friendly Solutions</option>
+                          <option value="other">Other Services</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-group">
+                      <div class="input-with-icon">
+                        <i
+                          class="fas fa-comment-alt input-icon textarea-icon"
+                        ></i>
+                        <textarea
+                          class="form-control form-control-lg"
+                          id="message"
+                          rows="5"
+                          placeholder="Your Message*"
+                          required
+                        ></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 mt-2">
+                    <div class="form-check">
                       <input
-                        type="email"
-                        class="form-control"
-                        id="email"
-                        placeholder="Enter your email"
+                        class="form-check-input"
+                        type="checkbox"
+                        id="privacy-policy"
                         required
                       />
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="form-group">
-                      <label for="phone" class="form-label">Phone Number</label>
-                      <input
-                        type="tel"
-                        class="form-control"
-                        id="phone"
-                        placeholder="Enter your phone number"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="form-group">
-                      <label for="subject" class="form-label">Subject</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="subject"
-                        placeholder="Enter subject"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="form-group">
-                      <label for="message" class="form-label"
-                        >Your Message</label
+                      <label
+                        class="form-check-label small"
+                        for="privacy-policy"
                       >
-                      <textarea
-                        class="form-control"
-                        id="message"
-                        rows="5"
-                        placeholder="Enter your message"
-                        required
-                      ></textarea>
+                        I agree to the <a href="#">Privacy Policy</a> and
+                        consent to being contacted regarding my inquiry.
+                      </label>
                     </div>
                   </div>
-                  <div class="col-12">
+                  <div class="col-12 mt-3">
                     <button
                       type="submit"
-                      class="btn btn-primary rounded-pill px-5 py-3 mt-3"
+                      class="btn btn-primary btn-lg rounded-pill px-5 py-3 d-flex align-items-center justify-content-center w-100 w-md-auto"
                     >
-                      Send Message
+                      <i class="fas fa-paper-plane me-2"></i> Send Message
                     </button>
                   </div>
                 </div>
               </form>
+
+              <div class="social-section mt-4 pt-4 border-top">
+                <h5 class="mb-3">Connect With Us</h5>
+                <div class="social-links d-flex">
+                  <a href="#" class="me-2 social-link"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                  <a href="#" class="me-2 social-link"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                  <a href="#" class="me-2 social-link"
+                    ><i class="fab fa-twitter"></i
+                  ></a>
+                  <a href="#" class="me-2 social-link"
+                    ><i class="fab fa-linkedin-in"></i
+                  ></a>
+                  <a href="#" class="me-2 social-link"
+                    ><i class="fab fa-pinterest"></i
+                  ></a>
+                  <a href="#" class="social-link"
+                    ><i class="fab fa-youtube"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="project-showcase p-4 rounded shadow-sm bg-white h-100">
+              <h4 class="mb-4">Featured Projects</h4>
+              <div class="featured-project mb-4">
+                <img
+                  src="https://images.unsplash.com/photo-1600210492493-0946911123ea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                  alt="Featured Project"
+                  class="img-fluid rounded mb-3"
+                />
+                <h5>Victorian Home Restoration</h5>
+                <p class="text-muted">
+                  A complete renovation of a 100-year-old Victorian home,
+                  preserving its historical charm while adding modern amenities.
+                </p>
+                <div class="project-tags mb-2">
+                  <span class="badge bg-light text-dark me-2">Historical</span>
+                  <span class="badge bg-light text-dark me-2">Restoration</span>
+                  <span class="badge bg-light text-dark">Modern Living</span>
+                </div>
+              </div>
+              <hr />
+              <div class="working-hours mb-4">
+                <h5 class="mb-3">Working Hours</h5>
+                <ul class="list-unstyled">
+                  <li class="d-flex justify-content-between mb-2">
+                    <span>Monday - Friday:</span>
+                    <span>9:00 AM - 6:00 PM</span>
+                  </li>
+                  <li class="d-flex justify-content-between mb-2">
+                    <span>Saturday:</span>
+                    <span>10:00 AM - 4:00 PM</span>
+                  </li>
+                  <li class="d-flex justify-content-between">
+                    <span>Sunday:</span>
+                    <span>Closed</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>

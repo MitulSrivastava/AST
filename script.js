@@ -101,6 +101,29 @@ function initContactForm() {
   const contactForm = document.getElementById("contactForm");
 
   if (contactForm) {
+    // Add input animation effects
+    const formControls = contactForm.querySelectorAll(
+      ".form-control, .form-select"
+    );
+    formControls.forEach((input) => {
+      // Add focus class for animation
+      input.addEventListener("focus", function () {
+        this.parentElement.classList.add("input-focused");
+      });
+
+      input.addEventListener("blur", function () {
+        this.parentElement.classList.remove("input-focused");
+
+        // Add filled class if input has value
+        if (this.value.trim() !== "") {
+          this.classList.add("is-filled");
+        } else {
+          this.classList.remove("is-filled");
+        }
+      });
+    });
+
+    // Form submission
     contactForm.addEventListener("submit", function (e) {
       e.preventDefault();
 
@@ -108,26 +131,94 @@ function initContactForm() {
       const name = document.getElementById("name").value;
       const email = document.getElementById("email").value;
       const phone = document.getElementById("phone").value;
-      const subject = document.getElementById("subject").value;
+      const serviceType = document.getElementById("service-type").value;
       const message = document.getElementById("message").value;
+      const privacyPolicy = document.getElementById("privacy-policy").checked;
 
       // Simple validation
       if (!name || !email || !message) {
         showAlert("Please fill out all required fields.", "danger");
+        highlightEmptyRequiredFields();
+        return;
+      }
+
+      if (!validateEmail(email)) {
+        showAlert("Please enter a valid email address.", "danger");
+        document.getElementById("email").classList.add("is-invalid");
+        return;
+      }
+
+      if (!privacyPolicy) {
+        showAlert("Please agree to the Privacy Policy to proceed.", "danger");
         return;
       }
 
       // Here you would normally send the form data to a server
-      // For this demo, we'll just show a success message
-      showAlert(
-        "Thank you for your message! We will get back to you soon.",
-        "success"
-      );
+      const formData = {
+        name,
+        email,
+        phone,
+        serviceType,
+        message,
+      };
 
-      // Reset the form
-      contactForm.reset();
+      console.log("Form data to be sent:", formData);
+
+      // Show loading state
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.innerHTML;
+      submitBtn.disabled = true;
+      submitBtn.innerHTML =
+        '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> Sending...';
+
+      // Simulate server request with timeout
+      setTimeout(() => {
+        // Remove loading state
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+
+        // Show success message
+        showAlert(
+          "Thank you for your message! We will get back to you soon.",
+          "success"
+        );
+
+        // Reset the form
+        contactForm.reset();
+        formControls.forEach((input) => {
+          input.classList.remove("is-filled");
+        });
+      }, 1500);
     });
   }
+}
+
+// Validate email format
+function validateEmail(email) {
+  const re =
+    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+}
+
+// Highlight empty required fields
+function highlightEmptyRequiredFields() {
+  const requiredFields = document.querySelectorAll("[required]");
+  requiredFields.forEach((field) => {
+    if (!field.value.trim()) {
+      field.classList.add("is-invalid");
+
+      // Remove invalid class on input
+      field.addEventListener(
+        "input",
+        function () {
+          if (this.value.trim() !== "") {
+            this.classList.remove("is-invalid");
+          }
+        },
+        { once: true }
+      );
+    }
+  });
 }
 
 // Function to display alert messages
