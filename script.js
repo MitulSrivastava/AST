@@ -9,6 +9,9 @@ document.addEventListener("DOMContentLoaded", function () {
   // Handle navbar color change on scroll
   handleNavbarScroll();
 
+  // Handle active nav links on scroll
+  handleActiveNavLinks();
+
   // Initialize contact form submission
   initContactForm();
 
@@ -196,3 +199,33 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   );
 });
+
+// Function to handle active nav links on scroll
+function handleActiveNavLinks() {
+  const sections = document.querySelectorAll("section[id]");
+  const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+
+  window.addEventListener("scroll", function () {
+    let current = "";
+    const scrollPosition = window.scrollY + 200; // Offset to trigger the active state earlier
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+
+      if (
+        scrollPosition >= sectionTop &&
+        scrollPosition < sectionTop + sectionHeight
+      ) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach((link) => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${current}`) {
+        link.classList.add("active");
+      }
+    });
+  });
+}
